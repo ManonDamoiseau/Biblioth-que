@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliothèque", "Bibliothèque\Bibliothèque.csproj", "{B36E1E87-0A2A-4F01-B61A-FDCCF8C1E5E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliotheque", "Bibliothèque\Bibliotheque.csproj", "{B36E1E87-0A2A-4F01-B61A-FDCCF8C1E5E1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{24ABA4BE-0D4F-4FD6-B13F-B6BE297278D6} = {24ABA4BE-0D4F-4FD6-B13F-B6BE297278D6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliotheque.Models", "Bibliotheque.Models\Bibliotheque.Models.csproj", "{24ABA4BE-0D4F-4FD6-B13F-B6BE297278D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{B36E1E87-0A2A-4F01-B61A-FDCCF8C1E5E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B36E1E87-0A2A-4F01-B61A-FDCCF8C1E5E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B36E1E87-0A2A-4F01-B61A-FDCCF8C1E5E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24ABA4BE-0D4F-4FD6-B13F-B6BE297278D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24ABA4BE-0D4F-4FD6-B13F-B6BE297278D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24ABA4BE-0D4F-4FD6-B13F-B6BE297278D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24ABA4BE-0D4F-4FD6-B13F-B6BE297278D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
