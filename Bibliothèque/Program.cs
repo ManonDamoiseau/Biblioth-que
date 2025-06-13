@@ -11,50 +11,55 @@ namespace Bibliothèque
         {
 
             bool over = false;
-            int num = 0;
+            int num = 1;
             Dictionary<int, string> library = new Dictionary<int, string>();
 
             while (over == false)
             {
-                
-
                 //Méthode menu
-                Console.Clear();
                 Methodes.Menu();
                 int.TryParse(Console.ReadLine(), out int instructUser);
+
                 switch (instructUser)
                 {
                     case 1:
-                        //méthode newBook
-                        Console.Clear();
+                        //Ajouter un livre
                         Methodes.newBook();
                         library.Add(num, Console.ReadLine());
-                        num += 1;
+                        num ++;
+                        Methodes.backMenu();
                         break;
 
-                    case 2:
-                        //méthode showAllBooks
-                        //Méthode montrer un livre
-                        Console.Clear();
+                    case 2: //Montrer tous les livres
+                        
                         Methodes.showAllBooks();
-                        foreach (var element in library)
+                        foreach (var book in library)
                         {
-                            Console.WriteLine($"{element.Key}, {element.Value}");
+                            Console.WriteLine($"id : {book.Key} | Titre livre : {book.Value}");
                         }
-
-
-
-                        Console.ReadKey();
+                        Methodes.backMenu();
                         break;
 
-                    case 0:
+                    case 3: // Modifier un livre
+                        Methodes.ModifBook();
+                        int.TryParse(Console.ReadLine(), out int index);
+                        if (library.ContainsKey(index))
+                        {
+                            Console.WriteLine("Quel est le nouveau titre pour ce livre?");
+                            library[index] = Console.ReadLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Cet index n'existe pas");
+                        }
+                        Methodes.backMenu();
+                        break;
+
+                    case 0: // Sortir du programme
                         over = true;
                         break;
 
                 }
-              
-
-
             }
         }
     }
