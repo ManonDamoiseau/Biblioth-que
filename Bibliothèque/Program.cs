@@ -11,13 +11,15 @@ namespace Bibliothèque
         {
 
             bool over = false;
-            int num = 1;
+            int num = 0;
+            Dictionary<int, string> library = new Dictionary<int, string>();
 
             while (over == false)
             {
-                Dictionary<int, string> books = new Dictionary<int, string>();
+                
 
                 //Méthode menu
+                Console.Clear();
                 Methodes.Menu();
                 int.TryParse(Console.ReadLine(), out int instructUser);
                 switch (instructUser)
@@ -26,7 +28,7 @@ namespace Bibliothèque
                         //méthode newBook
                         Console.Clear();
                         Methodes.newBook();
-                        books.Add(num, Console.ReadLine());
+                        library.Add(num, Console.ReadLine());
                         num += 1;
                         break;
 
@@ -35,10 +37,14 @@ namespace Bibliothèque
                         //Méthode montrer un livre
                         Console.Clear();
                         Methodes.showAllBooks();
-                        foreach (KeyValuePair<int, string> kvp in books)
+                        foreach (var element in library)
                         {
-                            Console.WriteLine($"{0} {1}, kvp.Key, kvp.Value");
+                            Console.WriteLine($"{element.Key}, {element.Value}");
                         }
+
+
+
+                        Console.ReadKey();
                         break;
 
                     case 0:
@@ -46,6 +52,9 @@ namespace Bibliothèque
                         break;
 
                 }
+              
+
+
             }
         }
     }

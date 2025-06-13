@@ -6,6 +6,7 @@ namespace Bibliotheque.Models
 {
     public class Methodes
     {
+        
         //Afficher le menu
             public static void Menu()
             {
