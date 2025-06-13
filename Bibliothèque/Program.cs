@@ -27,7 +27,7 @@ namespace Bibliothèque
                         Methodes.newBook();
                         library.Add(num, Console.ReadLine());
                         num ++;
-                        Methodes.backMenu();
+                        Console.Clear();
                         break;
 
                     case 2: //Montrer tous les livres
@@ -53,6 +53,12 @@ namespace Bibliothèque
                             Console.WriteLine("Cet index n'existe pas");
                         }
                         Methodes.backMenu();
+                        break;
+
+                    case 4: // Supprimer un livre
+                        Methodes.RemoveBook();
+                        int.TryParse (Console.ReadLine (), out int remove);
+                        library.Remove(remove);
                         break;
 
                     case 0: // Sortir du programme

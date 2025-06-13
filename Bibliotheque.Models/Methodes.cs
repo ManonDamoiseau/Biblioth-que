@@ -16,6 +16,7 @@ namespace Bibliotheque.Models
             Console.WriteLine("1 = Encoder un nouveau livre");
             Console.WriteLine("2 = Voir tous les livres de la bibliothèque");
             Console.WriteLine("3 = Modifier un livre");
+            Console.WriteLine("4 = Supprimer un livre");
             Console.WriteLine("0 = Supprimer la bibliothèque");
         }
 
@@ -46,6 +47,12 @@ namespace Bibliotheque.Models
             Console.WriteLine("====== MODIFICATION D'UN LIVRE ======\n");
             Console.WriteLine("Indique l'index (le numéro) du livre à modifier");
 
+        }
+        public static void RemoveBook() // 4 = Supprimer un livre
+        {
+            Console.Clear();
+            Console.WriteLine("====== SUPPRESSION D'UN LIVRE ======\n");
+            Console.WriteLine("Indique l'index (le numéro) du livre à supprimer");
         }
         #endregion
     }
