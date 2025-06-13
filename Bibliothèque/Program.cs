@@ -11,8 +11,8 @@ namespace Bibliothèque
         {
 
             bool over = false;
-            int num = 1;
-            Dictionary<int, string> library = new Dictionary<int, string>();
+            
+            Dictionary<string, string> library = new Dictionary<string, string>();
 
             while (over == false)
             {
@@ -25,8 +25,17 @@ namespace Bibliothèque
                     case 1:
                         //Ajouter un livre
                         Methodes.newBook();
-                        library.Add(num, Console.ReadLine());
-                        num ++;
+                        string titre = Console.ReadLine().Trim();
+                        if (titre == "")
+                        {
+                            Console.WriteLine("Tu dois entrer un titre");
+                            Console.ReadKey();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Entre le nom de l'auteur");
+                            library.Add(titre, Console.ReadLine());
+                        }
                         Console.Clear();
                         break;
 
@@ -35,29 +44,30 @@ namespace Bibliothèque
                         Methodes.showAllBooks();
                         foreach (var book in library)
                         {
-                            Console.WriteLine($"id : {book.Key} | Titre livre : {book.Value}");
+                            Console.WriteLine($"Titre : {book.Key} | Auteur.ice : {book.Value}");
                         }
                         Methodes.backMenu();
                         break;
 
-                    case 3: // Modifier un livre
+                    case 3: // Modifier auteur d'un livre
                         Methodes.ModifBook();
-                        int.TryParse(Console.ReadLine(), out int index);
+                        string index = Console.ReadLine();
                         if (library.ContainsKey(index))
                         {
-                            Console.WriteLine("Quel est le nouveau titre pour ce livre?");
+                            Console.WriteLine("Quel est l'auteur.ice pour ce livre?");
                             library[index] = Console.ReadLine();
                         }
                         else
                         {
-                            Console.WriteLine("Cet index n'existe pas");
+                            Console.WriteLine("Ce livre n'existe pas");
                         }
                         Methodes.backMenu();
                         break;
 
                     case 4: // Supprimer un livre
                         Methodes.RemoveBook();
-                        int.TryParse (Console.ReadLine (), out int remove);
+                        string remove= Console.ReadLine();
+                        remove.Trim();
                         library.Remove(remove);
                         break;
 
